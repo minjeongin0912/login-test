@@ -75,8 +75,7 @@ document.getElementById('logoutBtn').addEventListener('click', async function ()
 
 // 네이버 로그인
 const NAVER_CLIENT_ID    = 'b8CgWlvizKTVTuaTiDXY';
-const basePath           = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '');
-const NAVER_CALLBACK_URL = encodeURIComponent(basePath + '/naver-callback.html');
+const NAVER_CALLBACK_URL = encodeURIComponent('https://login-ecru-chi.vercel.app/naver-callback.html');
 
 document.querySelector('.social-btn.naver').addEventListener('click', function () {
   const state = Math.random().toString(36).slice(2);
