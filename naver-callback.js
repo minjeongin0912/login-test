@@ -19,7 +19,10 @@ function showSuccess(name) {
 if (!code) {
   showError('인증 코드가 없습니다. 다시 시도해주세요.');
 } else {
-  fetch('http://127.0.0.1:3000/naver-token?code=' + code + '&state=' + state)
+  const isLocal     = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  const SERVER_URL  = isLocal ? 'http://127.0.0.1:3000' : 'https://your-server.com'; // TODO: 배포 서버 주소 입력
+
+  fetch(SERVER_URL + '/naver-token?code=' + code + '&state=' + state)
     .then(res => res.json())
     .then(data => {
       if (data.error) throw new Error(data.error);

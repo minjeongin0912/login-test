@@ -75,7 +75,8 @@ document.getElementById('logoutBtn').addEventListener('click', async function ()
 
 // 네이버 로그인
 const NAVER_CLIENT_ID    = 'b8CgWlvizKTVTuaTiDXY';
-const NAVER_CALLBACK_URL = encodeURIComponent('http://127.0.0.1:5500/naver-callback.html');
+const basePath           = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '');
+const NAVER_CALLBACK_URL = encodeURIComponent(basePath + '/naver-callback.html');
 
 document.querySelector('.social-btn.naver').addEventListener('click', function () {
   const state = Math.random().toString(36).slice(2);
