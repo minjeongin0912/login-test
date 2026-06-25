@@ -19,8 +19,8 @@ function showSuccess(name) {
 if (!code) {
   showError('인증 코드가 없습니다. 다시 시도해주세요.');
 } else {
-  const isLocal     = ['localhost', '127.0.0.1'].includes(window.location.hostname);
-  const SERVER_URL  = isLocal ? 'http://127.0.0.1:3000' : 'https://your-server.com'; // TODO: 배포 서버 주소 입력
+  const isLocal    = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  const SERVER_URL = isLocal ? 'http://127.0.0.1:3000' : 'https://login-ecru-chi.vercel.app';
 
   fetch(SERVER_URL + '/naver-token?code=' + code + '&state=' + state)
     .then(res => res.json())
